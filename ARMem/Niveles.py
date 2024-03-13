@@ -57,7 +57,7 @@ def cicloNivel3():
     return(lis)
 
 def primerNivel():
-    listaJuego=[[0,1,2],[4,3,0],[4,3,1],[0,4,3],[2,0,1]]
+    #listaJuego=[[0,1,2],[4,3,0],[4,3,1],[0,4,3],[2,0,1]]
     listaJuego= cicloNivel1()
 
 
@@ -100,7 +100,7 @@ def primerNivel():
 
 
 def segundoNivel():
-    listaJuego=[[0,1,2,4],[4,3,2,1],[4,2,1,0],[2,1,4,3],[3,2,0,1]]
+    #listaJuego=[[0,1,2,4],[4,3,2,1],[4,2,1,0],[2,1,4,3],[3,2,0,1]]
     listaJuego= cicloNivel2()
     
     print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
@@ -142,8 +142,8 @@ def segundoNivel():
 
 
 def tercerNivel():
-    listaJuego=[[0,1,2,3,4],[4,3,2,1,0],[4,3,2,1,0],[0,2,1,4,3],[3,4,2,0,1]]
-    
+    #listaJuego=[[0,1,2,3,4],[4,3,2,1,0],[4,3,2,1,0],[0,2,1,4,3],[3,4,2,0,1]]
+    listaJuego=cicloNivel3()
     
     print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
     tiempoTotal=0
@@ -198,6 +198,7 @@ def ejecucionPrimerNivel(li:list):
         lis= li[co]
         lis.insert(1,tjugador)
         co+=1
+        time.sleep(2)
 
 def ejecucionSegundoNivel(li:list):
     print('\033[2J')    # Código ANSI para limpiar la pantalla en sistemas Windows
@@ -216,6 +217,7 @@ def ejecucionSegundoNivel(li:list):
         lis= li[co]
         lis.insert(2,tjugador)
         co+=1
+        time.sleep(2)
 
 def ejecucionTercerNivel(li:list):
     print('\033[2J')    # Código ANSI para limpiar la pantalla en sistemas Windows
@@ -234,6 +236,7 @@ def ejecucionTercerNivel(li:list):
         lis= li[co]
         lis.insert(3,tjugador)
         co+=1
+        time.sleep(2)
 
 #ejecucionPrimerNivel(jugadores)
 #ejecucionSegundoNivel(jugadores)

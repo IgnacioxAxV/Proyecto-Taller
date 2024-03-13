@@ -51,11 +51,11 @@ def registroJugador():
       nuevoJugador(jugador)
 print(listaJugadores)
 
-def procesoJuego1(listaJugadores:list):
+"""def procesoJuego1(listaJugadores:list):
   N.ejecucionPrimerNivel(listaJugadores)
   N.ejecucionSegundoNivel(listaJugadores)
   N.ejecucionTercerNivel(listaJugadores)
-
+  conteoFinal(listaJugadores)"""
 
 def conteoFinal(l:list):
     cont=0
@@ -101,6 +101,13 @@ def imprimirTop(l:list):
         print(f"El primer lugar con un tiempo de {l[0][1]}s es para {l[0][0]}")
     if (len(l)==1):
         print(f"El tiempo de {l[0][0]} fue de {l[0][1]}s")
+
+
+def procesoJuego1(listaJugadores:list):
+  N.ejecucionPrimerNivel(listaJugadores)
+  N.ejecucionSegundoNivel(listaJugadores)
+  N.ejecucionTercerNivel(listaJugadores)
+  conteoFinal(listaJugadores)
 
 def menuJuego():
   while True:    
