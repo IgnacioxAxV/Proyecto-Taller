@@ -1,5 +1,5 @@
 import time as t
-import ARMem.Niveles as Niveles
+import Niveles as N
 
 black   = "\033[0;30m"
 red     = "\033[0;31m"
@@ -15,23 +15,31 @@ def nuevoJugador(jugador:str)-> None:
     Args:
         jugador (str): _description_
     """
-    listaJugadores.append((jugador))
+    listaJugadores.append([jugador])
     return listaJugadores
 
 def menuJuego():
   while True:    
     print (chr(27) + "[2J")
     print (blue)
-    print ("1) Para agregar un nuevo jugador")
-    print ("2) Para empezar")
+    print ("A) Para agregar un nuevo jugador")
+    print ("B) Para empezar")
     opt= input("Digite alguna de las opciones anteriores: ")
-    if int(opt) == 1:
+    if opt.lower() == "a":
        registroJugador()
-    elif int(opt) == 2: 
-      if listaJugadores:
-          Niveles.primerNivel()
-
-
+    elif opt.lower() == "b": 
+      validacion= len(listaJugadores)
+      if validacion > 0:
+          N.primerNivel()
+      elif validacion == 0:
+          print (chr(27) + "[2J")
+          print("Por favor ingrese al menos un jugador antes de empezar")
+          t.sleep(2)
+    elif opt.lower() != "a" and opt.lower() != "b" :
+       print (chr(27) + "[2J")
+       print("Por favor ingrese una opción válida")
+       t.sleep(2)
+      
 def registroJugador():   
   print (chr(27) + "[2J")
   while True:
@@ -43,4 +51,5 @@ def registroJugador():
       nuevoJugador(jugador)
 print(listaJugadores)
 menuJuego()
+
 
