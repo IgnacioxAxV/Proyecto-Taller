@@ -1,4 +1,5 @@
 listaJugadores=[]
+
 def nuevoJugador(jugador:str)-> None:
     """_summary_
 
@@ -6,3 +7,5 @@ def nuevoJugador(jugador:str)-> None:
         jugador (str): _description_
     """
     listaJugadores.append((jugador))
+
+    return listaJugadores

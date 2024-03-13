@@ -36,7 +36,7 @@ def registroJugador():
     elif jugador != "salir":
       Lista_jugadores.nuevoJugador(jugador)
 
-  print(Lista_jugadores.listaJugadores)
+  #print(Lista_jugadores.listaJugadores)
   t.sleep(5)
        
 menuJuego()
