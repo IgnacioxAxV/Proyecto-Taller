@@ -1,5 +1,5 @@
-import time
 import ARMem as ar
+import time
 
 def primerNivel():
     listaJuego=[[0,1,2],[4,3,0],[4,3,1],[0,4,3],[2,0,1]]
@@ -15,7 +15,6 @@ def primerNivel():
         time.sleep(3)
 
         print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
-
         tiempoPartida=round(ar.start_sorting(x,flip_image=True,show_images=True, show_coordinates=False, show_ids=False, show_identified_marker=False)  ,2)
         tiempoTotal+=tiempoPartida
         print(f'Tiempo de partida: {tiempoPartida}s')
@@ -78,17 +77,4 @@ def tercerNivel():
     
     print (f'El usuario ha completado el juego en un tiempo de {tiempoTotal}s')
 
-while True:
-    print("Iniciar")
-    print("1)Si\n2)No")
-    opt=input("Seleccione una opcion:")
-    if not opt.isdigit:
-        #opt=input("Seleccione una opcion")
-        print("Por favor ingrese un numero")
-    elif opt == "":
-        print("Por favor ingrese un numero")
-    elif opt == 1:
-        
-    elif opt ==2:
-        pass 
     
