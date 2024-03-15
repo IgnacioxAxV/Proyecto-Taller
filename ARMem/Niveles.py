@@ -7,6 +7,10 @@ red= "\033[0;31m"
 yellow= "\033[1;33m"
 black= "\033[0;30m"
 green=  "\033[0;32m"
+nocolor = "\033[0m"
+blue    = "\033[0;34m"
+morado  = "\033[0;35m"
+cian    = "\033[0;36m"
 
 def randomizarNivel1():
     markers= [0,1,2,3,4]
@@ -65,6 +69,7 @@ def primerNivel():
     print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
     tiempoTotal=0
     for x in listaJuego:
+        print(blue)
         print(f'Memorice la siguiente secuencia...')
         listaFrutas= []
         for i in x:
@@ -93,7 +98,7 @@ def primerNivel():
 
         time.sleep(7)
         print('\033[2J')  # Código ANSI para limpiar la pantalla en sistemas Windows
-
+    print()
     print (f'El usuario ha completado el primer nivel en un tiempo de {tiempoTotal}s')
     time.sleep(2)
     return(tiempoTotal)
