@@ -34,7 +34,7 @@ def registroJugador():
         else:
             nuevoJugador(jugador)
         print(listaJugadores)
-
+    
 def conteoFinal(l:list):
     """Función que toma todos los reportes de nivel de cada jugador y los suma para crear el reporte 
     final del juego.
@@ -42,12 +42,14 @@ def conteoFinal(l:list):
     Args:
         tiempoN (list): Referencia de la lista otorgada a la función.
     """
-    cont=0
+    #cont=0
+    #tiempoN=listaJugadores
     for i in range(len(listaJugadores)):
-        tiempoN=listaJugadores[cont]
-        reporteFinal=tiempoN[1]+tiempoN[2]+tiempoN[3]
-        tiempoN.append(reporteFinal)
-        cont+=1
+        #tiempoN=listaJugadores
+        reporteFinal=listaJugadores[i][1]+listaJugadores[i][2]+listaJugadores[i][3]
+        listaJugadores[i].append(reporteFinal)
+        #cont+=1
+    #quitarReportes(tiempoN)
     quitarReportes(listaJugadores)
 
 def quitarReportes(l:list):
@@ -61,9 +63,12 @@ def quitarReportes(l:list):
     listaCopia= l.copy()
     cont= 0
     for y in range(len(listaJugadores)):
-        listaCopia[cont].pop(1)
-        listaCopia[cont].pop(1)
-        listaCopia[cont].pop(1)
+        #listaCopia[cont].pop(1)
+        #listaCopia[cont].pop(1)
+        #listaCopia[cont].pop(1)
+        listaCopia[y].pop(1)
+        listaCopia[y].pop(1)
+        listaCopia[y].pop(1)
     definirTop(listaCopia)
 
 def definirTop(l:list):
@@ -132,7 +137,7 @@ def reporteNivel1(l:list):
             if (listaCopia1[e][1]<listaCopia1[e+1][1]):
                 pass
             else :
-                temporal= l[e]
+                temporal= listaCopia1[e]
                 listaCopia1[e]=listaCopia1[e+1]
                 listaCopia1[e+1]=temporal
                 cambio=True
@@ -179,7 +184,7 @@ def reporteNivel2(l:list):
                 pass
             else :
                 temporal= listaCopia2[e]
-                listaCopia2[e]=l[e+1]
+                listaCopia2[e]=listaCopia2[e+1]
                 listaCopia2[e+1]=temporal
                 cambio=True
         if cambio == False:
@@ -226,10 +231,10 @@ def reporteNivel3(l:list):
                 pass
             else :
                 temporal= listaCopia3[e]
-                listaCopia3[e]=l[e+1]
+                listaCopia3[e]=listaCopia3[e+1]
                 listaCopia3[e+1]=temporal
                 cambio=True
-        if cambio :
+        if cambio == False:
             break
     imprimirReporte3(listaCopia3)
 
@@ -311,6 +316,8 @@ def menuJuego():
          print (chr(27) + "[2J")
          print("Por favor ingrese una opción válida")
          t.sleep(2)
-    
 
 reporteNivel1(listaJugadores)
+reporteNivel2(listaJugadores)
+reporteNivel3(listaJugadores)
+conteoFinal(listaJugadores)
