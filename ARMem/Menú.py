@@ -8,9 +8,8 @@ yellow  = "\033[0;33m"      #Conjunto de variables utilizadas paraa cambiar el c
 white   = "\033[0;37m"      #Conjunto de variables utilizadas paraa cambiar el color de las fuentes de la terminal
 nocolor = "\033[0m"         #Conjunto de variables utilizadas paraa cambiar el color de las fuentes de la terminal
 blue    = "\033[0;34m"      #Conjunto de variables utilizadas paraa cambiar el color de las fuentes de la terminal
-
-#listaJugadores=[['Juan', 23, 43, 32], ['Pancho', 56, 23, 43], ['Zac', 22, 10, 45], ['Lila', 27, 40, 11]] 
-listaJugadores=[]                                                                   #Lista vacía donde se colocará el nombre de jugadores y sus tiempos por nivel correspondientes
+ 
+listaJugadores=[]           #Lista vacía donde se colocará el nombre de jugadores y sus tiempos por nivel correspondientes
 
 def nuevoJugador(jugador:str)-> None:
     """Función que agrega el nombre del jugador nuevo como sublista detro de una lista predefinida.
@@ -19,19 +18,15 @@ def nuevoJugador(jugador:str)-> None:
         jugador (str): Nombre que del jugador que se otorgue a si mismo.
     """
     listaJugadores.append([jugador])
-    #return listaJugadores
       
 def registroJugador():   
     """Función que solicita y manda el nombre del usuario que se registró para si mismo en el juego 
     a una función de registro de nombre. Además de dar la opción al usuario de regresar al menu.
     """
-    #print (chr(27) + "[2J")
     while True:
         print (chr(27) + "[2J")
         print(f"La lista de jugadores {listaJugadores}")
         jugador= input("Ingrese nombre del jugador:")
-        #print("Inserte 'ok' para regresar al menu")
-        #t.sleep(4)
         if jugador.lower() == "ok":
             menuJuego()
         elif len(jugador) == 0:
@@ -58,8 +53,6 @@ def conteoFinal(l:list):
     Args:
         tiempoN (list): Referencia de la lista otorgada a la función.
     """
-    #cont=0
-    #tiempoN=listaJugadores
     for i in range(len(listaJugadores)):
         reporteFinal=listaJugadores[i][1]+listaJugadores[i][2]+listaJugadores[i][3]
         listaJugadores[i].append(reporteFinal)
@@ -76,9 +69,6 @@ def quitarReportes(l:list):
     listaCopia= l.copy()
     cont= 0
     for y in range(len(listaJugadores)):
-        #listaCopia[cont].pop(1)
-        #listaCopia[cont].pop(1)
-        #listaCopia[cont].pop(1)
         listaCopia[y].pop(1)
         listaCopia[y].pop(1)
         listaCopia[y].pop(1)
@@ -182,6 +172,7 @@ def imprimirReporte1(l:list):
         print(yellow)
         t.sleep(6)
         print(f"El tiempo de {l[0][0]} fue de {l[0][1]}s")
+
 def reporteNivel2(l:list):
     """Función que define el orden de los jugadores según su tiempo en 
     el nivel 2 por medio del método de ordenamiento por burbuja.
@@ -279,7 +270,7 @@ def imprimirReporte3(l:list):
 def procesoJuego1(listaJugadores:list):
     """Función que ejecuta cada nivel sobre la lista de jugadores ingresados al juego por medio de la 
     importación de funciones dentro del archivo 'Niveles'. Además de llamar a las funciones encargargadas
-    de imprimir los reportes de cada nivel y final del juego.
+    de imprimir los reportes de cada nivel y final del juego. Y se imprimen los créditos del juego.
 
     Args:
         listaJugadores (list): Lista de jugadores ingresados al sistema, siendo esta la original.
@@ -303,7 +294,7 @@ def procesoJuego1(listaJugadores:list):
 
 def menuJuego():
     """Función que hace papel del menu del juego, en este apartado, el usuario tiene acceso a generar nuevos jugadores
-    poder empezar el juego. 
+    poder empezar el juego. Además se validan los posibles errores quepueda presentar el código. 
     """
     while True:    
       print (chr(27) + "[2J")
@@ -332,8 +323,4 @@ def menuJuego():
          t.sleep(2)
 
 menuJuego()
-#reporteNivel1(listaJugadores)
-#reporteNivel2(listaJugadores)
-#reporteNivel3(listaJugadores)
-#conteoFinal(listaJugadores)
-#print(reporteNivel1([['Juan',10],['Wilmer',6],['Ignacio',12],['Andrey',11]]))
+
