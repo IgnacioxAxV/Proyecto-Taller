@@ -298,6 +298,7 @@ def procesoJuego1(listaJugadores:list):
     print("Creadores\n Wilmer Azofeifa\nIgnacio Alpízar")
     print("¡¡¡Gracias por jugar nuestro Juego!!!")
     print("Gracias a los profesores por el material para el proyecto")
+    t.sleep(30)
     menuJuego()
 
 def menuJuego():
