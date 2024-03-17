@@ -9,8 +9,8 @@ white   = "\033[0;37m"      #Conjunto de variables utilizadas paraa cambiar el c
 nocolor = "\033[0m"         #Conjunto de variables utilizadas paraa cambiar el color de las fuentes de la terminal
 blue    = "\033[0;34m"      #Conjunto de variables utilizadas paraa cambiar el color de las fuentes de la terminal
 
-listaJugadores=[['Juan', 23, 43, 32], ['Pancho', 56, 23, 43], ['Zac', 22, 10, 45], ['Lila', 27, 40, 11]]           #Lista vacía donde se colocará el nombre de jugadores y sus tiempos por nivel
-                            #correspondientes
+#listaJugadores=[['Juan', 23, 43, 32], ['Pancho', 56, 23, 43], ['Zac', 22, 10, 45], ['Lila', 27, 40, 11]] 
+listaJugadores=[]                                                                   #Lista vacía donde se colocará el nombre de jugadores y sus tiempos por nivel correspondientes
 
 def nuevoJugador(jugador:str)-> None:
     """Función que agrega el nombre del jugador nuevo como sublista detro de una lista predefinida.
@@ -25,15 +25,31 @@ def registroJugador():
     """Función que solicita y manda el nombre del usuario que se registró para si mismo en el juego 
     a una función de registro de nombre. Además de dar la opción al usuario de regresar al menu.
     """
-    print (chr(27) + "[2J")
+    #print (chr(27) + "[2J")
     while True:
+        print (chr(27) + "[2J")
+        print(f"La lista de jugadores {listaJugadores}")
         jugador= input("Ingrese nombre del jugador:")
-        print("Inserte 'ok' para regresar al menu")
+        #print("Inserte 'ok' para regresar al menu")
+        #t.sleep(4)
         if jugador.lower() == "ok":
             menuJuego()
+        elif len(jugador) == 0:
+            print(chr(27) + "[2J")
+            print("Debe de tener al menos un carácter el nombre") 
+            t.sleep(3)
         else:
-            nuevoJugador(jugador)
-        print(listaJugadores)
+            var=[jugador]
+            if var in listaJugadores:
+                print(chr(27) + "[2J")
+                print("Este jugador ya existe, por favor ingrese un nombre distinto")
+                t.sleep(3)
+                registroJugador()
+            else:
+                print(chr(27) + "[2J")
+                nuevoJugador(jugador)
+                print("Si desea regresar al menu inserte 'ok'")
+                t.sleep(3)
     
 def conteoFinal(l:list):
     """Función que toma todos los reportes de nivel de cada jugador y los suma para crear el reporte 
@@ -45,11 +61,8 @@ def conteoFinal(l:list):
     #cont=0
     #tiempoN=listaJugadores
     for i in range(len(listaJugadores)):
-        #tiempoN=listaJugadores
         reporteFinal=listaJugadores[i][1]+listaJugadores[i][2]+listaJugadores[i][3]
         listaJugadores[i].append(reporteFinal)
-        #cont+=1
-    #quitarReportes(tiempoN)
     quitarReportes(listaJugadores)
 
 def quitarReportes(l:list):
@@ -260,7 +273,7 @@ def imprimirReporte3(l:list):
         t.sleep(6)
     if (len(l)==1):
         print(yellow)
-        print(f"El tiempo de {l[0][3]} fue de {l[0][1]}s")
+        print(f"El tiempo de {l[0][3]} fue de {l[0][0]}s")
         t.sleep(6)
 
 def procesoJuego1(listaJugadores:list):
@@ -317,7 +330,9 @@ def menuJuego():
          print("Por favor ingrese una opción válida")
          t.sleep(2)
 
-reporteNivel1(listaJugadores)
-reporteNivel2(listaJugadores)
-reporteNivel3(listaJugadores)
-conteoFinal(listaJugadores)
+menuJuego()
+#reporteNivel1(listaJugadores)
+#reporteNivel2(listaJugadores)
+#reporteNivel3(listaJugadores)
+#conteoFinal(listaJugadores)
+#print(reporteNivel1([['Juan',10],['Wilmer',6],['Ignacio',12],['Andrey',11]]))
